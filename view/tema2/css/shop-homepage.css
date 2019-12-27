@@ -1,0 +1,29 @@
+/*!
+ * Start Bootstrap - Shop Homepage (https://startbootstrap.com/template-overviews/shop-homepage)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-shop-homepage/blob/master/LICENSE)
+ */
+body {
+  padding-top: 56px;
+}
+.col-lg-9 {
+	-ms-flex: 0 0 75%;
+	flex: 0 0 75%;
+	max-width: 75%;
+	margin-left: 0px;
+}
+.menurow{
+	position: absolute;
+	margin-left: 800px;
+	padding-top: 100px;
+}
+.menunav{
+	list-style: none;
+	display: inline;
+}
+.itensnav{
+	background-color: gray;
+	color: white;
+	display: inline;
+	padding-left: 20px;
+}
