@@ -59,3 +59,9 @@ footer {
 footer a {
     color: #f8f9fa!important
 }
+
+/*alteração*/
+.card bg-light mb-3.bg-light {
+    background-color: #343a40!important;
+}
+

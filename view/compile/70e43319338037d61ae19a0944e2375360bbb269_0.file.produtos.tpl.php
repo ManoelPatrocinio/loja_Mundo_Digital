@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-12-02 15:44:50
+/* Smarty version 3.1.34-dev-7, created on 2020-02-10 15:02:38
   from 'C:\xampp\htdocs\loja\view\produtos.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5de52362a7fc01_34017316',
+  'unifunc' => 'content_5e41627e9588f0_19249370',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '70e43319338037d61ae19a0944e2375360bbb269' => 
     array (
       0 => 'C:\\xampp\\htdocs\\loja\\view\\produtos.tpl',
-      1 => 1575297805,
+      1 => 1581343236,
       2 => 'file',
     ),
   ),
@@ -20,118 +20,117 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5de52362a7fc01_34017316 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5e41627e9588f0_19249370 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <body>
+
   <div class="container">
-    
+
     <div class="row" id="corpo">
-        
-        <!-- copo da pagina -->
-        <div class="row">
-          
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['PRO']->value, 'P');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['P']->value) {
+?>
+
+            <?php if (isset($_SESSION['adm']) != 9) {?>
+            <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_ativo'] == 's') {?>
+
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src= "midias/foto1.jpg" alt=""></a>
+            <div class="card h-100 ">
+
+              <div class="topo-item">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+</a>
+              </div>
+
+                <a href="<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+"><img class="card-img-top" src= "<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+" alt="" width="350px" height="300px"></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item One</a>
+
                 </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
+                <h5 class="card-price">R$<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+</h5>
+                <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_descricao'];?>
+</p>
               </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+
+              <div class="card-footer rodape-item" onclick="location.href='<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+';" style="cursor: pointer;">
+              <p>Mais Detalhes</p>
               </div>
             </div>
           </div>
-
+          <?php }?>
+          <?php } elseif ($_SESSION['adm'] == 9) {?>
+          <?php if ($_smarty_tpl->tpl_vars['P']->value['pro_ativo'] == 's' || $_smarty_tpl->tpl_vars['P']->value['pro_ativo'] == 'n') {?>
           <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src= "midias/foto2.jpg" alt=""></a>
+            <div class="card h-100 ">
+<?php if ($_smarty_tpl->tpl_vars['P']->value['pro_ativo'] == 'n') {?>
+              <div class="topo-item topo-cinza">
+              <a href="<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+</a>
+              </div>
+<?php } else { ?>
+            <div class="topo-item">
+            <a href="<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_nome'];?>
+</a>
+            </div>
+<?php }?>
+                <a href="<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+"><img class="card-img-top" src= "<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_img'];?>
+" alt="" width="350px" height="300px"></a>
               <div class="card-body">
                 <h4 class="card-title">
-                  <a href="#">Item Two</a>
+
                 </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
+                <h5 class="card-price">R$<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_valor'];?>
+</h5>
+                <p class="card-text"><?php echo $_smarty_tpl->tpl_vars['P']->value['pro_descricao'];?>
+</p>
               </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+<?php if ($_smarty_tpl->tpl_vars['P']->value['pro_ativo'] == 'n') {?>
+              <div class="card-footer rodape-item topo-cinza" onclick="location.href='<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+';" style="cursor: pointer;">
+              <p>Indisponível</p>
               </div>
+<?php } else { ?>
+            <div class="card-footer rodape-item" onclick="location.href='<?php echo $_smarty_tpl->tpl_vars['PRO_INFOR']->value;?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_id'];?>
+/<?php echo $_smarty_tpl->tpl_vars['P']->value['pro_slug'];?>
+';" style="cursor: pointer;">
+            <p>Mais Detalhes</p>
+            </div>
+<?php }?>
             </div>
           </div>
+          <?php }?>
+          <?php }?>
+             <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
 
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src= "midias/foto3.jpg" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Three</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Four</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Five</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur! Lorem ipsum dolor sit amet.</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card h-100">
-              <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-              <div class="card-body">
-                <h4 class="card-title">
-                  <a href="#">Item Six</a>
-                </h4>
-                <h5>$24.99</h5>
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet numquam aspernatur!</p>
-              </div>
-              <div class="card-footer">
-                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
-              </div>
-            </div>
-          </div>
-
-        </div>
-        <!-- /.row -->
-
-      
-      <!-- /.col-lg-9 -->
 
     </div>
     <!-- /.row -->
@@ -140,14 +139,7 @@ function content_5de52362a7fc01_34017316 (Smarty_Internal_Template $_smarty_tpl)
   <!-- /.container -->
 
   <!-- Bootstrap core JavaScript -->
-  <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/vendor/jquery/jquery.min.js"><?php echo '</script'; ?>
->
-  <?php echo '<script'; ?>
- src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/vendor/bootstrap/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
->
+
 
 </body>
 

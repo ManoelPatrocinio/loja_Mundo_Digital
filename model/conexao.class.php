@@ -1,12 +1,12 @@
 <?php
-	
+
 	/**
-	 * 
+	 *
 	 */
 	Class Conexao extends Config{
 		private $host, $user, $senha, $banco;
-		protected $obj, $prefixo="ola";
-		protected $itens = array( "oi");
+		protected $obj, $prefixo;
+		protected $itens = array();
 
 		function __construct(){
 			$this->host = self::BD_HOST;
@@ -20,28 +20,35 @@
 				if($this->Conectar() == null){
 					$this->Conectar();
 				}
-				
+
 
 			} catch (Exception $e) {
 				exit($e->getMessage().'<h2> ERRO NA CANEXÃO</h2>');
 			}
 		}
 
-		private function Conectar(){
+		 function Conectar(){
 			$options = array(
 
-				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf-8",
+				PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
 				PDO::ATTR_ERRMODE => PDO::ERRMODE_WARNING
 			);
-			$link = new PDO("mysql:host={$this->host};dbname={$this->banco}",$this->user,$this->senha);
+			$link = new PDO("mysql:host={$this->host};dbname={$this->banco}",$this->user,$this->senha,$options);
 
 			return $link;
 		}
 
 
 		function ExecuteSQL($query, array $params = NULL){
-			//objeto axecuta a conexão que executa a query
+			//objeto executa a conexão que executa a query
 			$this->obj = $this->Conectar()->prepare($query);
+
+			$pkCount = (is_array($params) ? count($params) : 0);
+			if($pkCount > 0){
+				foreach ($params as $key => $value) {
+					$this->obj->bindvalue($key,$value);
+				}
+			}
 			return $this->obj->execute();
 		}
 

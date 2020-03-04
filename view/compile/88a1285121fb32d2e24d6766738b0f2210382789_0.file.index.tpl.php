@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2019-12-26 17:00:05
+/* Smarty version 3.1.34-dev-7, created on 2020-02-08 17:51:10
   from 'C:\xampp\htdocs\loja\view\index.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5e04d90538cdf1_54323897',
+  'unifunc' => 'content_5e3ee6fe01f6f2_30204204',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '88a1285121fb32d2e24d6766738b0f2210382789' => 
     array (
       0 => 'C:\\xampp\\htdocs\\loja\\view\\index.tpl',
-      1 => 1577376001,
+      1 => 1581106560,
       2 => 'file',
     ),
   ),
@@ -20,8 +20,9 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5e04d90538cdf1_54323897 (Smarty_Internal_Template $_smarty_tpl) {
-?><!DOCTYPE html>
+function content_5e3ee6fe01f6f2_30204204 (Smarty_Internal_Template $_smarty_tpl) {
+?>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -29,141 +30,223 @@ function content_5e04d90538cdf1_54323897 (Smarty_Internal_Template $_smarty_tpl)
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <meta name="author" content="">
+  <meta name="Manoel P. & Weri O." content="">
+  
 
 
   <title><?php echo $_smarty_tpl->tpl_vars['SITE_NOME']->value;?>
 </title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap core CSS  -->
   <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+/tema/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+  <link rel="stylesheet" href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/vendor/fontawesome/css/fontawesome.min.css">
+  <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/vendor/gfonts/fonts.css" rel="stylesheet">
+
 
   <!-- Custom styles for this template -->
   <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/css/shop-homepage.css" rel="stylesheet">
   <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/css/animate.css" rel="stylesheet">
+  <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /css/contato.css" rel="stylesheet">
+  <link href="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/css/carrinho.css" rel="stylesheet">
 
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg font-white bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a id="logo" class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['GET_HOME']->value;?>
-">MUNDO DIGITAL</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
+        <a class="navbar-brand" href="<?php echo $_smarty_tpl->tpl_vars['GET_HOME']->value;?>
+">
+          <img src="<?php echo $_smarty_tpl->tpl_vars['GET_IMAGEM']->value;?>
+logo1.png" width="30" height="30" class="d-inline-block align-top" alt="">
+          Mundo Digital
+        </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
             <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['GET_HOME']->value;?>
-">Início
+">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <?php 
+               if(isset($_SESSION['logado'])){
+                echo $_SESSION['CLI']['cli_nome'];
+              }else{
+                echo 'Entrar';
+              }
+              ?>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <?php 
+                   if(empty($_SESSION['logado'])){
+                    echo '<a class="dropdown-item" href="http://localhost/loja/login">Login</a>';
+                  }
+                  ?>
+
+                <?php  if(isset($_SESSION['logado']) && isset($_SESSION['adm']) == '9'){
+                  echo '<a class="dropdown-item" href="http://localhost/loja/gerencia">Gerencia</a>';
+                }
+                ?>
+
+          <?php  if(isset($_SESSION['logado'])){
+              echo '<a class="dropdown-item" href="http://localhost/loja/logoff">Sair</a>';
+          }?>
+
+            </div>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Serviços</a>
+            <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['GET_SERVICOS']->value;?>
+">Serviços</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['GET_CONTATO']->value;?>
-">Contatos</a>
+">Contact</a>
           </li>
-          
+          <li class="nav-item" id="prod">
+            <a class="nav-link" href="#">Produtos</a>
+            <ul class="submenu-nav">
+              <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['CATEGORIAS']->value, 'C');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['C']->value) {
+?>
+                <li class="item-submenu" id="capasi"><a href="<?php echo $_smarty_tpl->tpl_vars['C']->value['cat_link'];?>
+"><?php echo $_smarty_tpl->tpl_vars['C']->value['cat_nome'];?>
+</a>
+
+                </li>
+              <?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+              <li class="item-submenu" id="capasi"><a href="<?php echo $_smarty_tpl->tpl_vars['GET_PRODUTOS']->value;?>
+">Todos</a></li>
+            </ul>
+
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Sobre</a>
+            <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['GET_CARRINHO']->value;?>
+">Carrinho</a>
           </li>
-           <li class="nav-item">
-            <a class="nav-link" href="#">Login</a>
+          <li class="nav-item">
+            <a class="nav-link" href="<?php echo $_smarty_tpl->tpl_vars['GET_PERFIL']->value;?>
+">Perfil</a>
           </li>
         </ul>
+
+
       </div>
     </div>
   </nav>
 
-  <!-- barra de categorias -->
-    <div class="categoria">
-      <div id="categoria">
-        <ul class="MenuCategoria">
-          <li id="catItem1" class="ItemCategoria">  <a href="#">Smartphones </a> </li>
-          
-          <li id="catItem2" class="ItemCategoria">  <a >Acessórios</a> 
-            <ul class="sub_menu" id="Acessorios">
-               <li class="sub_item"><a href="<?php echo $_smarty_tpl->tpl_vars['GET_PRODUTOS']->value;?>
-">Capas <a/></li>
-               <li class="sub_item">Películas</li>
-               <li class="sub_item">Fones</li>
-            </ul>
-          </li>
-          <li id="catItem3" class="ItemCategoria">  <a href="#">Manuteção</a> </li>
-          <li id="catItem3" class="ItemCategoria">  <a href="#">Carrinho</a>  </li>
-        </ul>
-      </div>       
-    </div>
+  <!-- Page Content -->
+  <div class="container">
 
-     <div id="carouselExampleIndicators" class="carousel slide my-4" data-ride="carousel">
+    <div class="row">
+
+
+      <!-- /.col-lg-3 -->
+
+      <div class="col-lg-9">
+
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            <li data-target="#carouselExampleIndicators -slide-to="0" class="acive"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
           </ol>
-          <div class="carousel-inner" role="listbox">
+          <div class="carousel-inner">
             <div class="carousel-item active">
-              <img class="d-block img-fluid" src="midias/slide1.jpg" alt="First slide">
+              <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_IMAGEM']->value;?>
+slide.jpg" alt="Primeiro Slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="midias/slide2.jpg" alt="Second slide">
+              <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_IMAGEM']->value;?>
+slide.jpg" alt="Segundo Slide">
             </div>
             <div class="carousel-item">
-              <img class="d-block img-fluid" src="midias/slide1.jpg" alt="Third slide">
+              <img class="d-block w-100" src="<?php echo $_smarty_tpl->tpl_vars['GET_IMAGEM']->value;?>
+slide.jpg" alt="Terceiro Slide">
             </div>
           </div>
           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
+            <span class="sr-only">Anterior</span>
           </a>
           <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
+            <span class="sr-only">Próximo</span>
           </a>
         </div>
+
+
       </div>
+      <!-- /.col-lg-9 -->
+
+    </div>
+    <!-- /.row -->
+
+  </div>
 
   <!-- corpo de conteúdo -->
   <div class="container">
-    
+
     <div class="row" id="corpo">
-      
+
 
         <?php 
 
-             Rotas:: get_Pagina(); 
+            if(Rotas:: get_Pagina() == 1){
+
+            }else{
+              header('Location:404.php');
+            }
+
 
         ?>
-    </div>  
-    
-  </div> 
-   
+    </div>
+
+  </div>
+
   <footer class="py-5 bg-dark">
     <div class="container">
       <p class="m-0 text-center text-white">Copyright &copy; Os Criminosos 2019</p>
     </div>
-    
+
   </footer>
 
   <!-- Bootstrap core JavaScript -->
   <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
-/tema/vendor/jquery/jquery.min.js"><?php echo '</script'; ?>
+/tema/vendor/jquery/jquery.js"><?php echo '</script'; ?>
 >
   <?php echo '<script'; ?>
  src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
 /tema/vendor/bootstrap/js/bootstrap.bundle.min.js"><?php echo '</script'; ?>
 >
-
+  <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/tema/vendor/fontawesome/js/all.js"><?php echo '</script'; ?>
+>
+  <?php echo '<script'; ?>
+ src="<?php echo $_smarty_tpl->tpl_vars['GET_TEMA']->value;?>
+/js/funcoes.js"><?php echo '</script'; ?>
+>
 </body>
 
 </html>

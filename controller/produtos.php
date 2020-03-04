@@ -1,9 +1,18 @@
 <?php
 	$smarty = new Template();
-	$smarty->assign('PRODUTOS','Página de produtos');
-	$smarty->display('produtos.tpl');
-	$produtos = new Produtos();
-	$produtos->GetProdutos();
 
-	
+	$produtos = new Produtos();
+
+	if(isset(Rotas::$pag[1])){ // se tiver passando alguma categoria no url
+		$produtos->GetProdutosCatID(Rotas::$pag[1]);
+		
+	}else {
+		$produtos->GetProdutos();
+	}
+
+
+	$smarty->assign('PRO',$produtos->GetItens());
+	$smarty->assign('PRO_INFOR',Rotas:: pag_produtosInfor());
+	$smarty->display('produtos.tpl');
+
 ?>

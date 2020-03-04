@@ -4454,7 +4454,7 @@ input[type="button"].btn-block {
 }
 
 .navbar-light .navbar-brand {
-  color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.9);
 }
 
 .navbar-light .navbar-brand:hover, .navbar-light .navbar-brand:focus {
@@ -4576,7 +4576,6 @@ input[type="button"].btn-block {
 .card > .list-group:last-child .list-group-item:last-child {
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
-  display: inline-block;
 }
 
 .card-body {
@@ -6216,7 +6215,6 @@ a.close.disabled {
 
 .carousel {
   position: relative;
-
 }
 
 .carousel.pointer-event {
@@ -6581,9 +6579,6 @@ button.bg-light:focus {
 
 .bg-dark {
   background-color: #343a40 !important;
-}
-.navbar-white{
-  background-color: white;
 }
 
 a.bg-dark:hover, a.bg-dark:focus,
@@ -10040,7 +10035,4 @@ a.text-dark:hover, a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
-
-
 /*# sourceMappingURL=bootstrap.css.map */
