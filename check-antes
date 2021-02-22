@@ -1,0 +1,8 @@
+==============================
+ Check p/ evitar Possiveis erros
+==============================
+
+1 nome da pasta do projeto (loja)
+2 nome do banco de dados e afins
+3 permissões da pasta Smarty e compile
+4 atualize o composer/ dependencias
